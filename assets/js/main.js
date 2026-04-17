@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   duplicateTickers();
   initScrollAnimations();
   initLiveFeed();
+  initLightbox();
 });
 
 /* ── Ticker: duplicate items for seamless loop ─────────────── */
@@ -126,6 +127,56 @@ function hydrateCerebImages() {
     if (!el) return;
     el.dataset.feedCategory = category;
     obs.observe(el);
+  });
+}
+
+/* ── Lightbox ──────────────────────────────────────────────── */
+function initLightbox() {
+  const imgs = Array.from(document.querySelectorAll('.mag-card img'));
+  if (!imgs.length) return;
+
+  const overlay = document.createElement('div');
+  overlay.className = 'lb-overlay';
+  overlay.innerHTML = `
+    <button class="lb-close">✕</button>
+    <button class="lb-arrow lb-prev">‹</button>
+    <img class="lb-img" src="" alt="">
+    <button class="lb-arrow lb-next">›</button>
+    <div class="lb-counter"></div>
+  `;
+  document.body.appendChild(overlay);
+
+  let cur = 0;
+  const lbImg     = overlay.querySelector('.lb-img');
+  const lbCounter = overlay.querySelector('.lb-counter');
+
+  function open(n) {
+    cur = (n + imgs.length) % imgs.length;
+    lbImg.src = imgs[cur].src;
+    lbImg.alt = imgs[cur].alt;
+    lbCounter.textContent = `${cur + 1} / ${imgs.length}`;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  imgs.forEach((img, i) => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => open(i));
+  });
+
+  overlay.querySelector('.lb-close').addEventListener('click', close);
+  overlay.querySelector('.lb-prev').addEventListener('click', e => { e.stopPropagation(); open(cur - 1); });
+  overlay.querySelector('.lb-next').addEventListener('click', e => { e.stopPropagation(); open(cur + 1); });
+  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+  document.addEventListener('keydown', e => {
+    if (!overlay.classList.contains('open')) return;
+    if (e.key === 'Escape')      close();
+    if (e.key === 'ArrowRight')  open(cur + 1);
+    if (e.key === 'ArrowLeft')   open(cur - 1);
   });
 }
 
