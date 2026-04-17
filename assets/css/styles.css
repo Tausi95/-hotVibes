@@ -487,6 +487,16 @@ body { background:var(--bg); color:var(--white); font-family:var(--fs); font-siz
 .mb-1{margin-bottom:.5rem} .mb-2{margin-bottom:1rem} .mb-3{margin-bottom:1.5rem} .mb-4{margin-bottom:2rem}
 .mt-2{margin-top:1rem} .mt-3{margin-top:1.5rem} .mt-4{margin-top:2rem}
 .flex{display:flex} .items-center{align-items:center} .gap-1{gap:.5rem} .gap-2{gap:1rem} .flex-wrap{flex-wrap:wrap}
+/* Live article link injected below cereb banner */
+.cereb-article-link {
+  display:flex; align-items:center; gap:.6rem;
+  font-size:.78rem; font-weight:500; color:var(--muted);
+  margin-top:-1.25rem; margin-bottom:2rem;
+  padding:.6rem 1rem; border-radius:var(--r);
+  background:rgba(255,255,255,.04); border:1px solid var(--subtle);
+  transition:all var(--ease); line-height:1.4;
+}
+.cereb-article-link:hover { color:var(--white); border-color:var(--border); }
 hr.dim{border:none;border-top:1px solid var(--subtle);margin:3rem 0}
 hr.glow{border:none;height:1px;background:linear-gradient(90deg,transparent 0%,var(--pink) 50%,transparent 100%);opacity:.3;margin:0}
 /* Section bg tints per category */
