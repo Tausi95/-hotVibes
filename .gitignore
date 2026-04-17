@@ -1,0 +1,5 @@
+*.zip
+issue-000-src/
+.codex
+.DS_Store
+Thumbs.db
