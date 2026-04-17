@@ -67,8 +67,9 @@ body { background:var(--bg); color:var(--white); font-family:var(--fs); font-siz
 .nav-inner {
   max-width:1280px; margin:0 auto;
   display:flex; align-items:center; justify-content:space-between;
-  height:64px; gap:1rem;
+  height:64px;
 }
+.nav-brand { display:flex; align-items:center; gap:.65rem; }
 .nav-logo { font-family:var(--fd); font-weight:800; font-size:1.5rem; letter-spacing:-0.025em; line-height:1; }
 .nav-logo .hot  { color:var(--white); }
 .nav-logo .vibes{ color:var(--pink);  }
@@ -258,17 +259,12 @@ body { background:var(--bg); color:var(--white); font-family:var(--fs); font-siz
 .cereb-tech::before     { background:radial-gradient(circle at top right,rgba(79,142,247,.1) 0%,transparent 60%); }
 .cereb-fashion  { background:linear-gradient(140deg,#180a12 0%,#2e1225 55%,#3e1535 100%); border-color:rgba(254,159,183,.25); }
 .cereb-adult    { background:linear-gradient(140deg,#150a1e 0%,#240f3c 55%,#301450 100%); border-color:rgba(155,124,247,.2); }
-/* Image inside cereb */
-.cereb-img {
-  width:100%; aspect-ratio:16/9; object-fit:cover;
-  border-radius:calc(var(--rl) - 6px); margin-bottom:2rem;
-  border:1px solid rgba(255,255,255,.08);
+/* Single editorial banner image inside cereb */
+.cereb-banner {
+  width:100%; height:320px; object-fit:cover; object-position:center 30%;
+  border-radius:calc(var(--rl) - 6px); margin-bottom:2rem; display:block;
+  border:1px solid rgba(255,255,255,.07);
 }
-.cereb-img.portrait { aspect-ratio:3/4; }
-.cereb-img.square   { aspect-ratio:1/1; }
-/* Cereb image grid */
-.cereb-img-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; margin-bottom:2rem; }
-.cereb-img-row img { width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:var(--r); border:1px solid rgba(255,255,255,.07); }
 .cereb-hero .card-title { font-size:clamp(1.6rem,3vw,2.4rem); margin-bottom:1rem; }
 .cereb-num {
   position:absolute; bottom:.5rem; right:1.75rem;
