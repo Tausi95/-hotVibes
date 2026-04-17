@@ -8,5 +8,25 @@
     "tagline": "The creator class is rewriting wealth in real time.",
     "color": "ic-bg-000",
     "link": "/issues/000/"
+  },
+  {
+    "issue": "001",
+    "title": "The Heat Index",
+    "theme": "Friday Hype Edition",
+    "type": "Friday — Hype",
+    "date": "2026-04-24",
+    "tagline": "J. Cole, Drake, Bellingham. Five industries. Eight pages. No filler.",
+    "color": "ic-bg-001",
+    "link": "/issues/001/"
+  },
+  {
+    "issue": "002",
+    "title": "New Money",
+    "theme": "Wealth Architecture",
+    "type": "Monday — Insight",
+    "date": "2026-04-28",
+    "tagline": "Agent economics, streaming royalties, AI passive income, the resale economy.",
+    "color": "ic-bg-002",
+    "link": "/issues/002/"
   }
 ]

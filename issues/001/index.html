@@ -520,6 +520,14 @@
     if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   readerGoTo(window.__readerCurrent - 1);
   });
 
+  // Touch swipe
+  let _tx = 0;
+  document.addEventListener('touchstart', e => { _tx = e.changedTouches[0].screenX; }, { passive: true });
+  document.addEventListener('touchend',   e => {
+    const diff = _tx - e.changedTouches[0].screenX;
+    if (Math.abs(diff) > 55) readerGoTo(window.__readerCurrent + (diff > 0 ? 1 : -1));
+  }, { passive: true });
+
   updateNav(0);
 })();
 </script>
