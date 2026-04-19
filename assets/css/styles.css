@@ -71,6 +71,7 @@ body { background:var(--bg); color:var(--white); font-family:var(--fs); font-siz
 }
 .nav-brand { display:flex; align-items:center; gap:.65rem; }
 .nav-logo { font-family:var(--fd); font-weight:800; font-size:1.5rem; letter-spacing:-0.025em; line-height:1; }
+.hot-o-flame { display:inline-block; height:.9em; width:auto; vertical-align:-.12em; }
 .nav-logo .hot  { color:var(--white); }
 .nav-logo .vibes{ color:var(--pink);  }
 .nav-badge {
